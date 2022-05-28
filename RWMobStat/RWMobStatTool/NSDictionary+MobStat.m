@@ -6,6 +6,7 @@
 //
 
 #import "NSDictionary+MobStat.h"
+#import "NSString+MobStat.h"
 
 @implementation NSDictionary (MobStat)
 

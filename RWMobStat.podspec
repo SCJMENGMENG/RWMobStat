@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RWMobStat"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "RWMobStat"
 
   # This description is used to generate tags and improve search results.
@@ -132,20 +132,20 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc = true
 
-  spec.public_header_files = 'RWMobStat/RWMobStatHeader.h'
-  spec.source_files = "RWMobStat", "RWMobStat/**/*.{h,m}"
+  # spec.public_header_files = 'RWMobStat/RWMobStatHeader.h'
+  # spec.source_files = "RWMobStat", "RWMobStat/**/*.{h,m}"
 
-  # spec.subspec 'RWMobStatTool' do |ss|
-  #   ss.source_files = 'RWMobStat/RWMobStatTool/*.{h,m}'
-  # end
+  spec.subspec 'RWMobStatTool' do |ss|
+    ss.source_files = 'RWMobStat/RWMobStatTool/*.{h,m}'
+  end
 
-  # spec.subspec 'RWMobStatModel' do |ss|
-  #   ss.source_files = 'RWMobStat/RWMobStatModel/*.{h,m}'
-  # end
+  spec.subspec 'RWMobStatModel' do |ss|
+    ss.source_files = 'RWMobStat/RWMobStatModel/*.{h,m}'
+  end
 
-  # spec.subspec 'Network' do |ss|
-  #   ss.source_files = 'RWMobStat/Network/*.{h,m}'
-  # end
+  spec.subspec 'Network' do |ss|
+    ss.source_files = 'RWMobStat/Network/*.{h,m}'
+  end
 
   spec.dependency "Protobuf"
   spec.dependency "MJExtension"

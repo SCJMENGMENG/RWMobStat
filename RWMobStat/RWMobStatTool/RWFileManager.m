@@ -7,6 +7,12 @@
 //
 
 #import "RWFileManager.h"
+#import "RWMobStatModel.pbobjc.h"
+
+#import "NSData+MobStat.h"
+#import "NSString+MobStat.h"
+
+#import <MJExtension/MJExtension.h>
 
 #define kFileSize (1000 *20.0)
 #define kByteNum    4

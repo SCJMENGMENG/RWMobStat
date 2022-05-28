@@ -7,7 +7,15 @@
 //
 
 #import "RWMobStatManager.h"
+#import "RWFileManager.h"
+#import "RWNetLoader.h"
+#import "RWNetStateManager.h"
+#import "RWMobStatModel.pbobjc.h"
+
+#import "NSDictionary+MobStat.h"
+
 #import <UIKit/UIKit.h>
+#import <MJExtension/MJExtension.h>
 
 #define kLogNum 20
 #define kFileSize (1000 *20.0)

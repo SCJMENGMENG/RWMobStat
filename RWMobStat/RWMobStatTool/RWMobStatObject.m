@@ -7,6 +7,8 @@
 //
 
 #import "RWMobStatObject.h"
+#import "RWMobStatManager.h"
+#import "RWNetStateManager.h"
 
 @implementation RWMobStatObject
 

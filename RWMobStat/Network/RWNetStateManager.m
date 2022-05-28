@@ -6,6 +6,7 @@
 //
 
 #import "RWNetStateManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation RWNetStateManager
 

@@ -7,6 +7,7 @@
 //
 
 #import "RWNetLoader.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface _RWNetLoader : AFHTTPSessionManager
 

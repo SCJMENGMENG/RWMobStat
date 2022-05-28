@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define kNetWorkStateNotify          @"kNetWorkStateNotify"//网络状态监测通知
+
 typedef NS_ENUM(NSInteger, RWNetState) {
     RWNetState_Unknown          = -1,
     RWNetState_NotReachable     = 0,
