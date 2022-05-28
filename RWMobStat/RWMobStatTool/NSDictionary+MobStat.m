@@ -2,7 +2,7 @@
 //  NSDictionary+MobStat.m
 //  ProtobufDemo
 //
-//  Created by 宋高杰 on 2022/5/26.
+//  Created by scj on 2022/5/26.
 //
 
 #import "NSDictionary+MobStat.h"

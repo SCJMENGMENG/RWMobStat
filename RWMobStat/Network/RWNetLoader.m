@@ -2,7 +2,7 @@
 //  RWNetLoader.m
 //  RestartProject
 //
-//  Created by 宋高杰 on 2022/5/24.
+//  Created by scj on 2022/5/24.
 //  Copyright © 2022 Reworld. All rights reserved.
 //
 
@@ -99,7 +99,7 @@
 }
 
 
-- (void)failureWithError:(NSError *)error task:(NSURLSessionDataTask *)task completeHandler:(void(^)(id model, RWMobStatError *errorModel))completeHandler {
+- (void)failureWithError:(NSError *)error task:(NSURLSessionDataTask *)task completeHandler:(void(^)(id model, id errorModel))completeHandler {
     RWMobStatError *errorModel = [[RWMobStatError alloc] init];
     
     errorModel.code = error.code;
@@ -138,7 +138,11 @@
     return loader;
 }
 
-- (NSURLSessionDataTask *)uploadMobStatLog:(NSString *)strURL params:(NSDictionary *)dicParams fileData:(NSData *)data fileParam:(NSString *)fileParam completeHandler:(void (^)(id _Nonnull, RWMobStatError * _Nonnull))completeHandler {
+- (NSURLSessionDataTask *)uploadMobStatLog:(NSString *)strURL params:(NSDictionary *)dicParams fileData:(NSData *)data fileParam:(NSString *)fileParam completeHandler:(void (^)(id _Nonnull model, id _Nonnull errorModel))completeHandler {
     return [loader uploadMobStatLog:strURL params:dicParams fileData:data fileParam:fileParam completeHandler:completeHandler];
 }
+@end
+
+@implementation RWMobStatError
+
 @end

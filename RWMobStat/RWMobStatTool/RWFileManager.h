@@ -17,9 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param data  mob state data
  *
+ * @param publicDic  public mob state dic
+ *
  * @return （BOOL） result
  **/
-+ (BOOL)saveMobStatData:(NSData * __nonnull)data;
++ (BOOL)saveMobStatData:(NSData * __nonnull)data publicDic:(NSDictionary *)publicDic;
 
 /**
  * get log upload file path
@@ -43,6 +45,15 @@ NS_ASSUME_NONNULL_BEGIN
  * @return （BOOL） result
  **/
 + (BOOL)removeLogFilePath:(NSString * __nonnull)filePath;
+
+/**
+ * remove log file
+ *
+ * @param path  a file path
+ *
+ * @return （NSArray *） result
+ **/
++ (NSArray *)inverseParsingWithPath:(NSString *)path;
 @end
 
 NS_ASSUME_NONNULL_END

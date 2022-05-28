@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)logWithPrivateParams:(NSDictionary *__nonnull)privateParams;
 
+- (void)logEvent:(NSString * __nonnull)eventId label:(NSString * __nullable)label;
+- (void)logEvent:(NSString * __nonnull)eventId attributes:(NSDictionary * __nullable)attributes;
+- (void)logPage:(NSString * __nonnull)pageId fromPage:(NSString * __nullable)fromPageId;
+
 @end
 
 NS_ASSUME_NONNULL_END

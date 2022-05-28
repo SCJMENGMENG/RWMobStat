@@ -39,4 +39,43 @@
     [[RWMobStatManager manager] logWithPrivateParams:privateParams];
 }
 
+#pragma mark - event logs
+
++ (void)logEvent:(NSString *)eventId
+{
+    [self logEvent:eventId label:nil];
+}
+
++ (void)logEvent:(NSString *)eventId label:(NSString *)label
+{
+    if (![eventId length]) {
+        return;
+    }
+    [[RWMobStatManager manager] logEvent:eventId label:label];
+}
+
++ (void)logEvent:(NSString *)eventId attributes:(NSDictionary *)attributes
+{
+    if (![eventId length]) {
+        return;
+    }
+    [[RWMobStatManager manager] logEvent:eventId attributes:attributes];
+}
+
+#pragma mark - page logs
+
++ (void)logPage:(NSString *)pageId
+{
+    [self logPage:pageId fromPage:nil];
+}
+
++ (void)logPage:(NSString *)pageId fromPage:(NSString *)fromPageId
+{
+    if (![pageId length]) {
+        return;
+    }
+    
+    [[RWMobStatManager manager] logPage:pageId fromPage:fromPageId];
+}
+
 @end

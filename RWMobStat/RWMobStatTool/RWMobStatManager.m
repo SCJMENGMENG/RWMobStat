@@ -71,15 +71,117 @@
     RWMobStatPrivateParams *model = [self mobStatModelPrivateParams:privateParams];
     if (model) {
         NSData *modelData = [model data];
-        [RWFileManager saveMobStatData:modelData];
+        BOOL needUpload = [RWFileManager saveMobStatData:modelData publicDic:self.publicParams];
+        if (needUpload){
+            [self handleWaitingForuploadFiles];
+        }
     }
     [self judgeUploadFiles];
+}
+
+- (void)logEvent:(NSString * __nonnull)eventId label:(NSString * __nullable)label
+{
+    if (![eventId length]) {
+        return;
+    }
+    
+    RWMobStatPrivateParams *model = [self mobStatModelEvent:eventId label:label];
+    if (model) {
+        NSData *modelData = [model data];
+        BOOL needUpload = [RWFileManager saveMobStatData:modelData publicDic:self.publicParams];
+        if (needUpload){
+            [self handleWaitingForuploadFiles];
+        }
+    }
+}
+
+- (void)logEvent:(NSString * __nonnull)eventId attributes:(NSDictionary * __nullable)attributes
+{
+    if (![eventId length]) {
+        return;
+    }
+    
+    RWMobStatPrivateParams *model = [self mobStatModelEvent:eventId attributes:attributes];
+    if (model) {
+        NSData *modelData = [model data];
+        BOOL needUpload = [RWFileManager saveMobStatData:modelData publicDic:self.publicParams];
+        if (needUpload){
+            [self handleWaitingForuploadFiles];
+        }
+    }
+}
+
+- (void)logPage:(NSString * __nonnull)pageId fromPage:(NSString * __nullable)fromPageId
+{
+    if (![pageId length]) {
+        return;
+    }
+    
+    RWMobStatPrivateParams *model = [self mobStatModelPage:pageId fromPage:fromPageId];
+    if (model) {
+        NSData *modelData = [model data];
+        BOOL needUpload = [RWFileManager saveMobStatData:modelData publicDic:self.publicParams];
+        if (needUpload){
+            [self handleWaitingForuploadFiles];
+        }
+    }
 }
 
 - (RWMobStatPrivateParams *)mobStatModelPrivateParams:(NSDictionary *__nonnull)privateParams {
     RWMobStatPrivateParams *model = [RWMobStatPrivateParams mj_objectWithKeyValues:privateParams];
     model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
     
+    return model;
+}
+
+- (RWMobStatPrivateParams *)mobStatModelEvent:(NSString * __nonnull)eventId label:(NSString * __nullable)label
+{
+    RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
+    model.type = @"event";
+    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
+//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
+//    model.eventId = eventId;
+//    if ([label length]) {
+//        model.eventLabel = label;
+//    }
+//    if (self.userIDBlock) {
+//        NSString *id = self.userIDBlock();
+//        model.userId = id;
+//    }
+    return model;
+}
+
+- (RWMobStatPrivateParams *)mobStatModelEvent:(NSString * __nonnull)eventId attributes:(NSDictionary * __nullable)attributes
+{
+    RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
+    model.type = @"event";
+    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
+//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
+//    model.eventId = eventId;
+//    if (attributes) {
+//        model.eventAttributes = [attributes copy];
+//    }
+//    if (self.userIDBlock) {
+//        NSString *id = self.userIDBlock();
+//        model.userId = id;
+//    }
+    return model;
+}
+
+- (RWMobStatPrivateParams *)mobStatModelPage:(NSString * __nonnull)pageId fromPage:(NSString * __nullable)fromPageId
+{
+    RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
+    model.type = @"page";
+    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
+//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
+//    model.pageId = pageId;
+//    if ([fromPageId length]) {
+//        model.fromPageId = fromPageId;
+//    }
+//    if (self.userIDBlock) {
+//        NSString *id = self.userIDBlock();
+//        model.userId = id;
+//    }
     return model;
 }
 
@@ -164,7 +266,7 @@
             url = [url substringToIndex:url.length-1];
             url = [url stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             
-            [[[RWNetworkObject alloc] init] postUploadMobStatLog:url params:@{} fileParam:path fileData:data completion:^(id  _Nonnull model, RWMobStatError * _Nonnull errorModel) {
+            [[[RWNetLoader alloc] init] uploadMobStatLog:url params:@{} fileData:data fileParam:path completeHandler:^(id  _Nonnull model, RWMobStatError * _Nonnull errorModel) {
                 NSLog(@"");
                 if ([model[@"code"] integerValue] == 1) {
                     [self->_uploadingArray removeObject:obj];

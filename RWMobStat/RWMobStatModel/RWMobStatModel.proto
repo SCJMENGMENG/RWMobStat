@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+message RWMobStatPublicParams {
+  string deviceId = 1; // 设备号，除非用户卸载APP，否则取值不应变化
+  string adId = 2; // 推广id（渠道）
+  string appVer = 3; // 版本号
+  string osType = 4; // 03官网;05编辑器；08安卓；09ios；
+  string osVer = 5; // 操作系统版本号如ios11
+  string deviceName = 6; // 设备名字
+  string uuid = 7; // 内部设备ID
+  string imei = 8; // 序列号
+  string oaid = 9; // 移动安全联盟 设备唯一标识
+  string adsId = 10; // Google广告ID（ads'I'd，I为大写的i）
+  string MAC2 = 11;
+  string umengDeviceToken = 12;
+  string argoId = 13;
+  string androidId = 14;
+  string idfa = 15;
+}
+
+message RWMobStatPrivateParams {
+  string type = 1;
+  string version = 2;
+  string userCode = 3;
+  string pidSid = 4;
+  string flag = 5;
+  string os = 6;
+  string mac = 7;//mac 地址
+  map<string, string> event_attributes = 8; //ext01 ext02 拓展字段
+  string lang = 9; //语言参数
+  string token = 10;
+  string unity_sdk_ver = 11;//"埋点上报时客户端状态：F（前台运行时埋点），B（后台运行时埋点）
+  string selfUserCode = 12;//用户code
+  string selfOpenid = 13;//用户外部ID
+  string ts = 14;//发起请求时间戳
+  string _sid = 15;//会话ID
+  string timegap = 16;//开启游戏时间
+  string getornot = 17;//标示host请求请求成功失败的
+  string mapId = 18;//游戏地图id，unity使用，android 当前为常量"0"
+}
