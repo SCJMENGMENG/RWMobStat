@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RWMobStat"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.6"
   spec.summary      = "RWMobStat"
 
   # This description is used to generate tags and improve search results.
@@ -133,7 +133,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   spec.public_header_files = 'RWMobStat/RWMobStatHeader.h'
-  spec.source_files = 'RWMobStat/RWMobStatHeader.h'
+  spec.source_files = 'RWMobStat','RWMobStat/RWMobStatHeader.h'
 
   spec.subspec 'RWMobStatTool' do |ss|
     ss.source_files = 'RWMobStat/RWMobStatTool/*.{h,m}'
@@ -146,7 +146,6 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Network' do |ss|
     ss.source_files = 'RWMobStat/Network/*.{h,m}'
-    ss.public_header_files = 'RWMobStat/Network/*.{h,m}'
   end
 
   spec.dependency "Protobuf"
