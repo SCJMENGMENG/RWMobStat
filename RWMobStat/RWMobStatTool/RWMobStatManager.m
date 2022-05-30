@@ -18,14 +18,10 @@
 #import <MJExtension/MJExtension.h>
 
 #define kLogNum 20
-#define kFileSize (1000 *20.0)
 
 @interface RWMobStatManager()
 
 @property (nonatomic, strong) NSMutableArray *uploadingArray;
-
-//F（前台运行时埋点），B（后台运行时埋点）
-@property (nonatomic, copy, nonnull) NSString *unity_sdk_ver;
 
 //日志条数最大20条
 @property (nonatomic, assign) NSInteger logNum;
@@ -137,71 +133,34 @@
 
 - (RWMobStatPrivateParams *)mobStatModelPrivateParams:(NSDictionary *__nonnull)privateParams {
     RWMobStatPrivateParams *model = [RWMobStatPrivateParams mj_objectWithKeyValues:privateParams];
-    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
-    
     return model;
 }
 
 - (RWMobStatPrivateParams *)mobStatModelEvent:(NSString * __nonnull)eventId label:(NSString * __nullable)label
 {
     RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
-    model.type = @"event";
-    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
-//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
-//    model.eventId = eventId;
-//    if ([label length]) {
-//        model.eventLabel = label;
-//    }
-//    if (self.userIDBlock) {
-//        NSString *id = self.userIDBlock();
-//        model.userId = id;
-//    }
     return model;
 }
 
 - (RWMobStatPrivateParams *)mobStatModelEvent:(NSString * __nonnull)eventId attributes:(NSDictionary * __nullable)attributes
 {
     RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
-    model.type = @"event";
-    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
-//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
-//    model.eventId = eventId;
-//    if (attributes) {
-//        model.eventAttributes = [attributes copy];
-//    }
-//    if (self.userIDBlock) {
-//        NSString *id = self.userIDBlock();
-//        model.userId = id;
-//    }
     return model;
 }
 
 - (RWMobStatPrivateParams *)mobStatModelPage:(NSString * __nonnull)pageId fromPage:(NSString * __nullable)fromPageId
 {
     RWMobStatPrivateParams *model = [[RWMobStatPrivateParams alloc] init];
-    model.type = @"page";
-    model.unitySdkVer = self.unity_sdk_ver ? self.unity_sdk_ver : @"F";
-//    model.ctime = (uint64_t)([[NSDate date] timeIntervalSince1970]*1000);
-//    model.pageId = pageId;
-//    if ([fromPageId length]) {
-//        model.fromPageId = fromPageId;
-//    }
-//    if (self.userIDBlock) {
-//        NSString *id = self.userIDBlock();
-//        model.userId = id;
-//    }
     return model;
 }
 
 - (void)applicationDidEnterBackground
 {
-    self.unity_sdk_ver = @"B";
     [self handleWaitingForuploadFiles];
 }
 
 - (void)applicationWillEnterForeground
 {
-    self.unity_sdk_ver = @"F";
     [self handleWaitingForuploadFiles];
 }
 
@@ -261,7 +220,7 @@
             
             NSData *data = [NSData dataWithContentsOfFile:path];
             
-            NSString *url = [RWMobStatManager manager].uploadUrl;//@"https://betadataapi.reworlder.com/data/pub/app/bigdata/v1/async/batch/log?";
+            NSString *url = [RWMobStatManager manager].uploadUrl;
             
             NSMutableDictionary *dic = self.publicParams.mutableCopy;
             [dic setValue:size forKey:@"fileSize"];
