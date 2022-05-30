@@ -137,7 +137,8 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'RWMobStatTool' do |ss|
     ss.source_files = 'RWMobStat/RWMobStatTool/*.{h,m}'
-    # ss.dependency = 'RWMobStatHeader/Network'
+    ss.dependency 'RWMobStat/Network'
+    ss.dependency 'RWMobStat/RWMobStatModel'
   end
 
   spec.subspec 'RWMobStatModel' do |ss|
