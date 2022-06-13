@@ -258,44 +258,38 @@ typedef struct RWMobStatPublicParams__storage_ {
 @implementation RWMobStatPrivateParams
 
 @dynamic type;
-@dynamic version;
 @dynamic userCode;
-@dynamic pidSid;
+@dynamic openId;
 @dynamic flag;
 @dynamic os;
 @dynamic mac;
-@dynamic eventAttributes, eventAttributes_Count;
 @dynamic lang;
 @dynamic token;
 @dynamic unitySdkVer;
-@dynamic selfUserCode;
+@dynamic selfUseCode;
 @dynamic selfOpenid;
 @dynamic ts;
 @dynamic sid;
-@dynamic timegap;
-@dynamic getornot;
 @dynamic mapId;
+@dynamic eventAttributes, eventAttributes_Count;
 
 typedef struct RWMobStatPrivateParams__storage_ {
   uint32_t _has_storage_[1];
   NSString *type;
-  NSString *version;
   NSString *userCode;
-  NSString *pidSid;
+  NSString *openId;
   NSString *flag;
   NSString *os;
   NSString *mac;
-  NSMutableDictionary *eventAttributes;
   NSString *lang;
   NSString *token;
   NSString *unitySdkVer;
-  NSString *selfUserCode;
+  NSString *selfUseCode;
   NSString *selfOpenid;
   NSString *ts;
   NSString *sid;
-  NSString *timegap;
-  NSString *getornot;
   NSString *mapId;
+  NSMutableDictionary *eventAttributes;
 } RWMobStatPrivateParams__storage_;
 
 // This method is threadsafe because it is initially called
@@ -314,29 +308,20 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "version",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Version,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, version),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "userCode",
         .dataTypeSpecific.clazz = Nil,
         .number = RWMobStatPrivateParams_FieldNumber_UserCode,
-        .hasIndex = 2,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, userCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "pidSid",
+        .name = "openId",
         .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_PidSid,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, pidSid),
+        .number = RWMobStatPrivateParams_FieldNumber_OpenId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, openId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
@@ -344,7 +329,7 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .name = "flag",
         .dataTypeSpecific.clazz = Nil,
         .number = RWMobStatPrivateParams_FieldNumber_Flag,
-        .hasIndex = 4,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, flag),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -353,7 +338,7 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .name = "os",
         .dataTypeSpecific.clazz = Nil,
         .number = RWMobStatPrivateParams_FieldNumber_Os,
-        .hasIndex = 5,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, os),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -362,9 +347,81 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .name = "mac",
         .dataTypeSpecific.clazz = Nil,
         .number = RWMobStatPrivateParams_FieldNumber_Mac,
-        .hasIndex = 6,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, mac),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "lang",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_Lang,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, lang),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "token",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_Token,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, token),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "unitySdkVer",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_UnitySdkVer,
+        .hasIndex = 8,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, unitySdkVer),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "selfUseCode",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_SelfUseCode,
+        .hasIndex = 9,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfUseCode),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "selfOpenid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_SelfOpenid,
+        .hasIndex = 10,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfOpenid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "ts",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_Ts,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, ts),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "sid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_Sid,
+        .hasIndex = 12,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, sid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "mapId",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RWMobStatPrivateParams_FieldNumber_MapId,
+        .hasIndex = 13,
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, mapId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
@@ -374,96 +431,6 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, eventAttributes),
         .flags = GPBFieldMapKeyString,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "lang",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Lang,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, lang),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "token",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Token,
-        .hasIndex = 8,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, token),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "unitySdkVer",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_UnitySdkVer,
-        .hasIndex = 9,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, unitySdkVer),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "selfUserCode",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_SelfUserCode,
-        .hasIndex = 10,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfUserCode),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "selfOpenid",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_SelfOpenid,
-        .hasIndex = 11,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfOpenid),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "ts",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Ts,
-        .hasIndex = 12,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, ts),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "sid",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Sid,
-        .hasIndex = 13,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, sid),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "timegap",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Timegap,
-        .hasIndex = 14,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, timegap),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "getornot",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_Getornot,
-        .hasIndex = 15,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, getornot),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "mapId",
-        .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_MapId,
-        .hasIndex = 16,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, mapId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
@@ -477,7 +444,7 @@ typedef struct RWMobStatPrivateParams__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\003\010\000\004\006\000\014\014\000\r\n\000\017\203\000\022\005\000";
+        "\006\002\010\000\003\006\000\n\013\000\013\n\000\r\203\000\016\005\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

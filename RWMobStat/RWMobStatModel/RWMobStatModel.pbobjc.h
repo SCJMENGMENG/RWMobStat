@@ -98,12 +98,16 @@ GPB_FINAL @interface RWMobStatPublicParams : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *mac2;
 
+/** umeng标识 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *umengDeviceToken;
 
+/** IOS特有参数 方舟的匿名id */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *argoId;
 
+/** 安卓 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *androidId;
 
+/** iOS设备唯一标识 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *idfa;
 
 @end
@@ -112,57 +116,53 @@ GPB_FINAL @interface RWMobStatPublicParams : GPBMessage
 
 typedef GPB_ENUM(RWMobStatPrivateParams_FieldNumber) {
   RWMobStatPrivateParams_FieldNumber_Type = 1,
-  RWMobStatPrivateParams_FieldNumber_Version = 2,
-  RWMobStatPrivateParams_FieldNumber_UserCode = 3,
-  RWMobStatPrivateParams_FieldNumber_PidSid = 4,
-  RWMobStatPrivateParams_FieldNumber_Flag = 5,
-  RWMobStatPrivateParams_FieldNumber_Os = 6,
-  RWMobStatPrivateParams_FieldNumber_Mac = 7,
-  RWMobStatPrivateParams_FieldNumber_EventAttributes = 8,
-  RWMobStatPrivateParams_FieldNumber_Lang = 9,
-  RWMobStatPrivateParams_FieldNumber_Token = 10,
-  RWMobStatPrivateParams_FieldNumber_UnitySdkVer = 11,
-  RWMobStatPrivateParams_FieldNumber_SelfUserCode = 12,
-  RWMobStatPrivateParams_FieldNumber_SelfOpenid = 13,
-  RWMobStatPrivateParams_FieldNumber_Ts = 14,
-  RWMobStatPrivateParams_FieldNumber_Sid = 15,
-  RWMobStatPrivateParams_FieldNumber_Timegap = 16,
-  RWMobStatPrivateParams_FieldNumber_Getornot = 17,
-  RWMobStatPrivateParams_FieldNumber_MapId = 18,
+  RWMobStatPrivateParams_FieldNumber_UserCode = 2,
+  RWMobStatPrivateParams_FieldNumber_OpenId = 3,
+  RWMobStatPrivateParams_FieldNumber_Flag = 4,
+  RWMobStatPrivateParams_FieldNumber_Os = 5,
+  RWMobStatPrivateParams_FieldNumber_Mac = 6,
+  RWMobStatPrivateParams_FieldNumber_Lang = 7,
+  RWMobStatPrivateParams_FieldNumber_Token = 8,
+  RWMobStatPrivateParams_FieldNumber_UnitySdkVer = 9,
+  RWMobStatPrivateParams_FieldNumber_SelfUseCode = 10,
+  RWMobStatPrivateParams_FieldNumber_SelfOpenid = 11,
+  RWMobStatPrivateParams_FieldNumber_Ts = 12,
+  RWMobStatPrivateParams_FieldNumber_Sid = 13,
+  RWMobStatPrivateParams_FieldNumber_MapId = 14,
+  RWMobStatPrivateParams_FieldNumber_EventAttributes = 15,
 };
 
 GPB_FINAL @interface RWMobStatPrivateParams : GPBMessage
 
+/** 埋点类型 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *type;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *version;
-
+/** userCode */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *userCode;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *pidSid;
+/** openId */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *openId;
 
+/** 0是研发安卓 1是研发iOS 2是研发web端 3是平台安卓 4是平台iOS */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *flag;
 
+/** 版本号 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *os;
 
 /** mac 地址 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *mac;
 
-/** ext01 ext02 拓展字段 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSString*> *eventAttributes;
-/** The number of items in @c eventAttributes without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger eventAttributes_Count;
-
 /** 语言参数 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *lang;
 
+/** token */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *token;
 
 /** "埋点上报时客户端状态：F（前台运行时埋点），B（后台运行时埋点） */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *unitySdkVer;
 
 /** 用户code */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *selfUserCode;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *selfUseCode;
 
 /** 用户外部ID */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *selfOpenid;
@@ -173,14 +173,12 @@ GPB_FINAL @interface RWMobStatPrivateParams : GPBMessage
 /** 会话ID */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *sid;
 
-/** 开启游戏时间 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *timegap;
-
-/** 标示host请求请求成功失败的 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *getornot;
-
 /** 游戏地图id，unity使用，android 当前为常量"0" */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *mapId;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSString*> *eventAttributes;
+/** The number of items in @c eventAttributes without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger eventAttributes_Count;
 
 @end
 
