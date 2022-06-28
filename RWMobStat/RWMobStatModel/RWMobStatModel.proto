@@ -28,7 +28,7 @@ message RWMobStatPrivateParams {
        string lang = 7; //语言参数
        string token = 8; // token
        string unity_sdk_ver = 9;//"埋点上报时客户端状态：F（前台运行时埋点），B（后台运行时埋点）
-       string selfUseCode = 10;//用户code
+       string selfUserCode = 10;//用户code
        string selfOpenid = 11;//用户外部ID
        string ts = 12;//发起请求时间戳
        string _sid = 13;//会话ID

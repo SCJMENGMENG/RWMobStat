@@ -29,7 +29,7 @@ CF_EXTERN_C_BEGIN
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - RWMobStatModelRoot
+#pragma mark - RwmobStatModelRoot
 
 /**
  * Exposes the extension registry for this file.
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  * which is a @c GPBExtensionRegistry that includes all the extensions defined by
  * this file and all files that it depends on.
  **/
-GPB_FINAL @interface RWMobStatModelRoot : GPBRootObject
+GPB_FINAL @interface RwmobStatModelRoot : GPBRootObject
 @end
 
 #pragma mark - RWMobStatPublicParams
@@ -124,7 +124,7 @@ typedef GPB_ENUM(RWMobStatPrivateParams_FieldNumber) {
   RWMobStatPrivateParams_FieldNumber_Lang = 7,
   RWMobStatPrivateParams_FieldNumber_Token = 8,
   RWMobStatPrivateParams_FieldNumber_UnitySdkVer = 9,
-  RWMobStatPrivateParams_FieldNumber_SelfUseCode = 10,
+  RWMobStatPrivateParams_FieldNumber_SelfUserCode = 10,
   RWMobStatPrivateParams_FieldNumber_SelfOpenid = 11,
   RWMobStatPrivateParams_FieldNumber_Ts = 12,
   RWMobStatPrivateParams_FieldNumber_Sid = 13,
@@ -162,7 +162,7 @@ GPB_FINAL @interface RWMobStatPrivateParams : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSString *unitySdkVer;
 
 /** 用户code */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *selfUseCode;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *selfUserCode;
 
 /** 用户外部ID */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *selfOpenid;

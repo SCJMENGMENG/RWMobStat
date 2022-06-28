@@ -13,7 +13,7 @@
  #import "GPBProtocolBuffers_RuntimeSupport.h"
 #endif
 
-#import "RWMobStatModel.pbobjc.h"
+#import "RwmobStatModel.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -26,18 +26,18 @@
 // We don't use [Foo class] because it is not a static value.
 GPBObjCClassDeclaration(RWMobStatPrivateParams);
 
-#pragma mark - RWMobStatModelRoot
+#pragma mark - RwmobStatModelRoot
 
-@implementation RWMobStatModelRoot
+@implementation RwmobStatModelRoot
 
 // No extensions in the file and no imports, so no need to generate
 // +extensionRegistry.
 
 @end
 
-#pragma mark - RWMobStatModelRoot_FileDescriptor
+#pragma mark - RwmobStatModelRoot_FileDescriptor
 
-static GPBFileDescriptor *RWMobStatModelRoot_FileDescriptor(void) {
+static GPBFileDescriptor *RwmobStatModelRoot_FileDescriptor(void) {
   // This is called by +initialize so there is no need to worry
   // about thread safety of the singleton.
   static GPBFileDescriptor *descriptor = NULL;
@@ -232,8 +232,8 @@ typedef struct RWMobStatPublicParams__storage_ {
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[RWMobStatPublicParams class]
-                                     rootClass:[RWMobStatModelRoot class]
-                                          file:RWMobStatModelRoot_FileDescriptor()
+                                     rootClass:[RwmobStatModelRoot class]
+                                          file:RwmobStatModelRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(RWMobStatPublicParams__storage_)
@@ -266,7 +266,7 @@ typedef struct RWMobStatPublicParams__storage_ {
 @dynamic lang;
 @dynamic token;
 @dynamic unitySdkVer;
-@dynamic selfUseCode;
+@dynamic selfUserCode;
 @dynamic selfOpenid;
 @dynamic ts;
 @dynamic sid;
@@ -284,7 +284,7 @@ typedef struct RWMobStatPrivateParams__storage_ {
   NSString *lang;
   NSString *token;
   NSString *unitySdkVer;
-  NSString *selfUseCode;
+  NSString *selfUserCode;
   NSString *selfOpenid;
   NSString *ts;
   NSString *sid;
@@ -380,11 +380,11 @@ typedef struct RWMobStatPrivateParams__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "selfUseCode",
+        .name = "selfUserCode",
         .dataTypeSpecific.clazz = Nil,
-        .number = RWMobStatPrivateParams_FieldNumber_SelfUseCode,
+        .number = RWMobStatPrivateParams_FieldNumber_SelfUserCode,
         .hasIndex = 9,
-        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfUseCode),
+        .offset = (uint32_t)offsetof(RWMobStatPrivateParams__storage_, selfUserCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
@@ -436,15 +436,15 @@ typedef struct RWMobStatPrivateParams__storage_ {
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[RWMobStatPrivateParams class]
-                                     rootClass:[RWMobStatModelRoot class]
-                                          file:RWMobStatModelRoot_FileDescriptor()
+                                     rootClass:[RwmobStatModelRoot class]
+                                          file:RwmobStatModelRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(RWMobStatPrivateParams__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\002\010\000\003\006\000\n\013\000\013\n\000\r\203\000\016\005\000";
+        "\006\002\010\000\003\006\000\n\014\000\013\n\000\r\203\000\016\005\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG
