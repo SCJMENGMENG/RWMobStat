@@ -20,7 +20,7 @@
         NSSet *typeSet = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", @"text/xml", @"video/mp2t", @"suggestion/json", @"application/zip", nil];
         self.responseSerializer = [AFHTTPResponseSerializer serializer];
         self.responseSerializer.acceptableContentTypes = typeSet;
-        self.requestSerializer.timeoutInterval = 5.0f;
+        self.requestSerializer.timeoutInterval = 15.0f;
         [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         AFSecurityPolicy *policy = [AFSecurityPolicy defaultPolicy];
         policy.allowInvalidCertificates = YES;
